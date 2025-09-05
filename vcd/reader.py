@@ -413,6 +413,8 @@ class _TokenizerState:
             or c == 46  # '.' not in spec, but seen in the wild
             or c == 40  # '(' - produced by cva6 core
             or c == 41  # ')' - produced by cva6 core
+            or c == 91  # "[" - produced by verilator for some 2-D arrays
+            or c == 93  # "]" - produced by verilator for some 2-D arrays
         ):
             identifier.append(c)
             c = self.advance(raise_on_eof=False)
